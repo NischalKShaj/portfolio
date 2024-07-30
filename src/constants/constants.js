@@ -15,14 +15,11 @@ import {
   git,
   figma,
   docker,
-  meta,
-  starbucks,
   brototype,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
+  nextjs,
+  nginx,
+  stepCrazy,
+  codeSprint,
   threejs,
 } from "../assets";
 
@@ -86,9 +83,17 @@ const technologies = [
     icon: redux,
   },
   {
-    name: "Tailwind CSS",
-    icon: tailwind,
+    name: "NextJs",
+    icon: nextjs,
   },
+  // {
+  //   name: "Tailwind CSS",
+  //   icon: tailwind,
+  // },
+  // {
+  //   name: "Three JS",
+  //   icon: threejs,
+  // },
   {
     name: "Node JS",
     icon: nodejs,
@@ -96,10 +101,6 @@ const technologies = [
   {
     name: "MongoDB",
     icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
   },
   {
     name: "git",
@@ -112,6 +113,10 @@ const technologies = [
   {
     name: "docker",
     icon: docker,
+  },
+  {
+    name: "nginx",
+    icon: nginx,
   },
 ];
 
@@ -159,67 +164,82 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Step Crazy",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Step crazy is a comprehensive e-commerce platform developed and deployed to provide a seamless online shopping experience for shoe enthusiasts. The platform incorporates various features, including product view, zoom, cart/wishlist management, diverse payment methods, order details, coupon application, and PDF invoices. Additionally, it includes an admin dashboard for graphical sales representation, user management, and product/category/coupon editing.",
     tags: [
       {
-        name: "react",
+        name: "ejs",
         color: "blue-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "express.js",
+        color: "green-text-gradient",
       },
       {
         name: "mongodb",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "bootstrap",
         color: "pink-text-gradient",
       },
+      {
+        name: "javascript",
+        color: "yellow-text-gradient",
+      },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: stepCrazy,
+    source_code_link: "https://github.com/NischalKShaj/Step_Crazy",
   },
   {
-    name: "Job IT",
+    name: "Code Sprint",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Developed a comprehensive e-learning platform for programming and competitive coding. The platform allows course additions to Amazon S3, detailed course viewing, and integrates payment gateways for subscriptions. It includes features for adding coding problems, an admin dashboard with user statistics, and real-time chat between tutors and students. Built with Node.js, Express.js, and Next.js for scalability and a dynamic user experience.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
+        name: "nextJs",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "node.js",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "express.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "green-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "yellow-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "docker",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: codeSprint,
+    source_code_link: "https://github.com/NischalKShaj/Code_Sprint",
   },
 ];
 
