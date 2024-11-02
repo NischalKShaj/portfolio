@@ -22,8 +22,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.4 : 0.75} // Further reduced scale for mobile
+        position={isMobile ? [0, -2, -1] : [0, -3.25, -1.5]} // Adjusted position for better fit
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -36,29 +36,13 @@ Computers.propTypes = {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
     setIsMobile(mediaQuery.matches);
 
-    if (mediaQuery.matches) {
-      setError(
-        "3D model may not render properly on mobile devices due to rendering limitations."
-      );
-    } else {
-      setError(null);
-    }
-
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
-      if (event.matches) {
-        setError(
-          "3D model may not render properly on mobile devices due to rendering limitations."
-        );
-      } else {
-        setError(null);
-      }
     };
 
     mediaQuery.addEventListener("change", handleMediaQueryChange);
@@ -66,21 +50,20 @@ const ComputersCanvas = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
   }, []);
 
-  if (error) {
-    return <div style={{ color: "red", textAlign: "center" }}>{error}</div>;
-  }
-
   return (
     <Canvas
       frameloop="demand"
       shadows
       dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{
+        position: isMobile ? [5, 3, 5] : [20, 3, 5], // Closer camera for mobile
+        fov: isMobile ? 35 : 25, // Adjusted field of view for mobile
+      }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          enableZoom={false}
+          enableZoom={!isMobile} // Disable zoom on desktop, enable on mobile
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
