@@ -1,7 +1,5 @@
-/* eslint-disable react/no-unknown-property */
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -12,13 +10,17 @@ import {
 } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
-const Ball = (props) => {
-  const [decal] = useTexture([props.imgUrl]);
+const Ball = ({ imgUrl, isMobile }) => {
+  const [decal] = useTexture([imgUrl]);
+
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={Math.PI} />
       <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
+
+      {/* eslint-disable react/no-unknown-property */}
+      <mesh castShadow receiveShadow scale={isMobile ? 1.75 : 2.75}>
+        {/* args is required for geometry in Three.js */}
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color="#fff8eb"
@@ -33,21 +35,47 @@ const Ball = (props) => {
           map={decal}
         />
       </mesh>
+      {/* eslint-enable react/no-unknown-property */}
     </Float>
   );
 };
 
+Ball.propTypes = {
+  imgUrl: PropTypes.string.isRequired,
+  isMobile: PropTypes.bool,
+};
+
 const BallCanvas = ({ icon }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
+    };
+    handleResize(); // Set initial value based on screen size
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <Canvas frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
+    <Canvas
+      frameloop="demand"
+      gl={{ preserveDrawingBuffer: true }}
+      dpr={isMobile ? [1, 1.5] : [1, 2]} // Adjust DPR for mobile
+    >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
+        <OrbitControls enableZoom={!isMobile} />
+        <Ball imgUrl={icon} isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
     </Canvas>
   );
+};
+
+BallCanvas.propTypes = {
+  icon: PropTypes.string.isRequired,
 };
 
 export default BallCanvas;

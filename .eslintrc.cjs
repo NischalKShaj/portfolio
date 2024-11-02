@@ -12,16 +12,32 @@ module.exports = {
   settings: { react: { version: "18.2" } },
   plugins: ["react-refresh"],
   rules: {
-    // Disable all rules by setting them to "off"
+    // Disable specific ESLint rules
     "react/jsx-no-target-blank": "off",
     "react-refresh/only-export-components": "off",
-    // Add other rules you want to disable here
     "no-unused-vars": "off",
     "no-console": "off",
     "no-debugger": "off",
     "no-undef": "off",
     "no-redeclare": "off",
     "no-alert": "off",
-    // Add other rules you want to disable here
+
+    // Ignore unknown properties used by @react-three/fiber
+    "react/no-unknown-property": [
+      "error",
+      {
+        ignore: [
+          "intensity",
+          "groundColor",
+          "position",
+          "angle",
+          "penumbra",
+          "castShadow",
+          "shadowMapSize",
+          "object",
+          "rotation",
+        ],
+      },
+    ],
   },
 };
