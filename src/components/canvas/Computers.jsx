@@ -43,7 +43,9 @@ const ComputersCanvas = () => {
     setIsMobile(mediaQuery.matches);
 
     if (mediaQuery.matches) {
-      setError("This 3D model is not viewable on mobile devices.");
+      setError(
+        "3D model may not render properly on mobile devices due to rendering limitations."
+      );
     } else {
       setError(null);
     }
@@ -51,7 +53,9 @@ const ComputersCanvas = () => {
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
       if (event.matches) {
-        setError("This 3D model is not viewable on mobile devices.");
+        setError(
+          "3D model may not render properly on mobile devices due to rendering limitations."
+        );
       } else {
         setError(null);
       }

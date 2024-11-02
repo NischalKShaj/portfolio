@@ -55,7 +55,7 @@ const BallCanvas = ({ icon }) => {
       setIsMobile(isMobileDevice);
       setError(
         isMobileDevice
-          ? "This 3D model is not optimized for mobile devices."
+          ? "3D model may not render properly on mobile devices due to rendering limitations."
           : null
       );
     };
