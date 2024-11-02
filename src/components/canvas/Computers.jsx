@@ -36,15 +36,35 @@ Computers.propTypes = {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
     setIsMobile(mediaQuery.matches);
-    const handleMediaQueryChange = (event) => setIsMobile(event.matches);
+
+    if (mediaQuery.matches) {
+      setError("This 3D model is not viewable on mobile devices.");
+    } else {
+      setError(null);
+    }
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+      if (event.matches) {
+        setError("This 3D model is not viewable on mobile devices.");
+      } else {
+        setError(null);
+      }
+    };
+
     mediaQuery.addEventListener("change", handleMediaQueryChange);
     return () =>
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
   }, []);
+
+  if (error) {
+    return <div style={{ color: "red", textAlign: "center" }}>{error}</div>;
+  }
 
   return (
     <Canvas

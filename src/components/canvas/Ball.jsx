@@ -47,16 +47,27 @@ Ball.propTypes = {
 
 const BallCanvas = ({ icon }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
+      const isMobileDevice = window.innerWidth < 768;
+      setIsMobile(isMobileDevice);
+      setError(
+        isMobileDevice
+          ? "This 3D model is not optimized for mobile devices."
+          : null
+      );
     };
     handleResize(); // Set initial value based on screen size
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  if (error) {
+    return <div style={{ color: "red", textAlign: "center" }}>{error}</div>;
+  }
 
   return (
     <Canvas
