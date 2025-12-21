@@ -15,7 +15,7 @@ import {
   git,
   figma,
   docker,
-  brototype,
+  scita,
   nextjs,
   nginx,
   stepCrazy,
@@ -122,15 +122,17 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Full stack Intern",
-    company_name: "Brototype",
-    icon: brototype,
+    title: "Software Trainee (Backend Developer)",
+    company_name: "Scita Solutions",
+    icon: scita,
     iconBg: "#E6DEDD",
-    date: "June 2023 - present",
+    date: "December 2024 - present",
     points: [
-      "Currently spearheading the creation of an e-learning platform that includes course management, multi-tiered payment gateways, and an admin dashboard, leveraging Node.js, Next.js, and AWS.",
-      "Developed an e-commerce platform for shoe sales featuring product view, zoom, cart management, diverse payment options, and PDF invoicing, with backend support from Node.js and Express.js.",
-      "Contributed to various projects at Brototype, demonstrating adaptability in problem-solving and enhancing both user experience and backend performance.",
+      "Engineered backend APIs in Node.js/Express with PostgreSQL, improving request performance by 30%.",
+      "Built secure authentication, validation, and error-handling pipelines.",
+      "Optimized SQL joins and indexes to enhance reporting dashboards.",
+      "Assisted in deploying backend services to client environments and resolving deployment issues.",
+      "Coordinated with product and frontend teams for feature delivery and API integration.",
     ],
   },
 ];

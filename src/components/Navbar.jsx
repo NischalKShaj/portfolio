@@ -9,6 +9,21 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
+  // for downloading the CV
+  const handleDownloadCV = () => {
+    const url = "/Nischal_K_Shaj.pdf";
+    // Create a temporary anchor element
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Nischal_K_Shaj_Full_Stack_Developer.pdf"; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Close mobile menu if open
+    if (toggle) setToggle(false);
+  };
+
   return (
     <nav
       className={`
@@ -42,6 +57,14 @@ const Navbar = () => {
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
+          <li
+            className="text-secondary hover:text-white text-[18px] cursor-pointer font-medium"
+            onClick={handleDownloadCV}
+          >
+            <button className="bg-transparent border-2 border-secondary hover:border-white px-4 py-2 rounded-lg transition-all duration-300">
+              Download CV
+            </button>
+          </li>
         </ul>
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
@@ -70,6 +93,17 @@ const Navbar = () => {
                   <a href={`#${link.id}`}>{link.title}</a>
                 </li>
               ))}
+              <li
+                className={`${
+                  active === "Download CV" ? "text-white" : "text-secondary"
+                } font-poppins font-medium text-[16px] cursor-pointer`}
+                onClick={() => {
+                  setToggle(!toggle);
+                  handleDownloadCV();
+                }}
+              >
+                <button>Download CV</button>
+              </li>
             </ul>
           </div>
         </div>

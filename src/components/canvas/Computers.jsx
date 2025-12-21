@@ -22,8 +22,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.4 : 0.75} // Further reduced scale for mobile
-        position={isMobile ? [0, -2, -1] : [0, -3.25, -1.5]} // Adjusted position for better fit
+        scale={isMobile ? 0.32 : 0.75}
+        position={isMobile ? [-2.3, -1, -1.2] : [0, -3.25, -1.5]} // Changed X from 0 to -0.5 for mobile
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -38,7 +38,7 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
@@ -56,14 +56,14 @@ const ComputersCanvas = () => {
       shadows
       dpr={[1, 2]}
       camera={{
-        position: isMobile ? [5, 3, 5] : [20, 3, 5], // Closer camera for mobile
-        fov: isMobile ? 35 : 25, // Adjusted field of view for mobile
+        position: isMobile ? [20, 3, 5] : [20, 3, 5],
+        fov: isMobile ? 25 : 25,
       }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
-          enableZoom={!isMobile} // Disable zoom on desktop, enable on mobile
+          enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />

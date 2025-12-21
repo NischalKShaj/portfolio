@@ -24,6 +24,7 @@ import nextjs from "./tech/nextjs.png";
 import nginx from "./tech/nginx.png";
 
 import brototype from "./company/brototype.png";
+import scita from "./company/scita.png";
 
 import stepCrazy from "./stepCrazy.png";
 import codeSprint from "./codeSprint.png";
@@ -51,6 +52,7 @@ export {
   typescript,
   threejs,
   brototype,
+  scita,
   stepCrazy,
   codeSprint,
   nextjs,
