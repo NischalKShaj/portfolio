@@ -11,7 +11,7 @@ const Navbar = () => {
 
   // for downloading the CV
   const handleDownloadCV = () => {
-    const url = "/Nischal_K_Shaj.pdf";
+    const url = "/Nischal_K_Shaj_Full_Stack_Developer.pdf";
     // Create a temporary anchor element
     const link = document.createElement("a");
     link.href = url;
