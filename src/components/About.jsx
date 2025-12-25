@@ -12,7 +12,7 @@ import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 // eslint-disable-next-line react/prop-types
 const ServiceCard = ({ index, title, icon }) => {
   return (
-    <div className="w-full xs:w-[250px]">
+    <div className="w-full xs:w-[360px]">
       <Tilt options={{ max: 45, scale: 1, speed: 450 }}>
         <motion.div
           variants={fadeIn("right", "spring", 0.5 * index, 0.75)}

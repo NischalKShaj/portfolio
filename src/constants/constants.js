@@ -30,15 +30,11 @@ const services = [
     icon: web,
   },
   {
-    title: "Frontend React Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Node.js Developer",
+    title: "Backend Engineer (Node.js)",
     icon: backend,
   },
   {
-    title: "API Development Specialist",
+    title: "API & System Design",
     icon: creator,
   },
 ];
