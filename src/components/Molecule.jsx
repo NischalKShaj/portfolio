@@ -24,17 +24,18 @@ const SkillLabel = ({ position, label }) => {
     const distToLabel = labelWorldPos.distanceTo(camera.position);
     const distToCenter = centerWorldPos.distanceTo(camera.position);
 
-    const isBehind = distToLabel > distToCenter + 0.1;
+    const depthDelta = distToCenter - distToLabel;
 
-    if (isBehind) {
-      labelRef.current.style.color = "#cececeff";
-      labelRef.current.style.opacity = "0.4";
-      labelRef.current.style.transform = "scale(0.7)";
-    } else {
-      labelRef.current.style.color = "white";
-      labelRef.current.style.opacity = "1";
-      labelRef.current.style.transform = "scale(1.1)";
-    }
+    const depthFactor = THREE.MathUtils.clamp(depthDelta * 0.8, -1, 1);
+
+    const scale = THREE.MathUtils.lerp(0.7, 1.1, (depthFactor + 1) / 2);
+
+    const opacity = THREE.MathUtils.lerp(0.4, 1, (depthFactor + 1) / 2);
+
+    labelRef.current.style.transform = `scale(${scale})`;
+    labelRef.current.style.opacity = opacity.toString();
+
+    labelRef.current.style.color = depthFactor > 0 ? "white" : "#cececeff";
   });
 
   return (
