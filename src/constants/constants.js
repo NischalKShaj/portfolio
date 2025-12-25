@@ -85,14 +85,10 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Step Crazy",
+    name: "ATMS",
     description:
-      "Step crazy is a comprehensive e-commerce platform developed and deployed to provide a seamless online shopping experience for shoe enthusiasts. The platform incorporates various features, including product view, zoom, cart/wishlist management, diverse payment methods, order details, coupon application, and PDF invoices. Additionally, it includes an admin dashboard for graphical sales representation, user management, and product/category/coupon editing.",
+      "Built a backend-heavy Advanced Traffic Management System (ATMS) aligned with NHAI ATMS 2023 guidelines. The system processes real-time traffic violations and events using Node.js, Express, PostgreSQL, and Socket.IO. Implemented modules for ANPR, overspeed detection, incident logging, device health monitoring, and role-based access control. Designed efficient reporting and analytics pipelines, and scalable APIs with a focus on performance, reliability, and maintainable architecture.",
     tags: [
-      {
-        name: "ejs",
-        color: "blue-text-gradient",
-      },
       {
         name: "node.js",
         color: "green-text-gradient",
@@ -102,20 +98,19 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "bootstrap",
-        color: "pink-text-gradient",
+        name: "postgresql",
+        color: "blue-text-gradient",
       },
       {
         name: "javascript",
         color: "yellow-text-gradient",
       },
+      {
+        name: "socket.io",
+        color: "pink-text-gradient",
+      },
     ],
-    image: stepCrazy,
-    source_code_link: "https://github.com/NischalKShaj/Step_Crazy",
+    image: codeSprint,
   },
   {
     name: "Code Sprint",
@@ -161,6 +156,39 @@ const projects = [
     ],
     image: codeSprint,
     source_code_link: "https://github.com/NischalKShaj/Code_Sprint",
+  },
+  {
+    name: "Step Crazy",
+    description:
+      "Step crazy is a comprehensive e-commerce platform developed and deployed to provide a seamless online shopping experience for shoe enthusiasts. The platform incorporates various features, including product view, zoom, cart/wishlist management, diverse payment methods, order details, coupon application, and PDF invoices. Additionally, it includes an admin dashboard for graphical sales representation, user management, and product/category/coupon editing.",
+    tags: [
+      {
+        name: "ejs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "express.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "green-text-gradient",
+      },
+      {
+        name: "bootstrap",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: stepCrazy,
+    source_code_link: "https://github.com/NischalKShaj/Step_Crazy",
   },
 ];
 

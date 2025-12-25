@@ -7,8 +7,10 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
+// company exp section
 import scita from "./company/scita.png";
 
+// projects
 import stepCrazy from "./stepCrazy.png";
 import codeSprint from "./codeSprint.png";
 
