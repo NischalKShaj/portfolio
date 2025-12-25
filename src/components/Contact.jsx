@@ -6,6 +6,7 @@ import { styles } from "../style";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "./hoc";
 import { slideIn } from "../utils/motion";
+import toast from "react-hot-toast";
 
 // template_lu5apzi
 // service_7xygkyt
@@ -29,8 +30,8 @@ const Contact = () => {
     setLoading(true);
     emailjs
       .send(
-        "service_7xygkyt",
-        "template_lu5apzi",
+        // "service_x97d9v7",
+        // "template_lu5apzi",
         {
           from_name: form.name,
           to_name: "Nischal",
@@ -38,18 +39,22 @@ const Contact = () => {
           to_email: "nischalkshaj5@gmail.com",
           message: form.message,
         },
-        "tv4ZtdWkoQyQOtmK4"
+        "bsp7wHNsqvnaMQHMB"
       )
       .then(
         () => {
           setLoading(false);
-          alert("Thank you, I will get back to you as soon as possible");
+          toast.success("Message sent. I’ll get back to you soon.");
           setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           setLoading(false);
           console.log(error);
-          alert("Something went wrong.");
+          toast.error("Email service failed. Opening mail client…");
+
+          window.location.href = `mailto:nischalkshaj5@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(
+            form.message
+          )}`;
         }
       );
   };
