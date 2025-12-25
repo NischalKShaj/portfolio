@@ -70,7 +70,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="-mt-10">
+      <div className="mt-6 lg:-mt-10">
         <p className="italic">“Programs must be written for people to read.”</p>
         <p className="italic text-sm">— Harold Abelson</p>
       </div>
