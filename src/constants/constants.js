@@ -3,24 +3,9 @@ import {
   backend,
   creator,
   web,
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  figma,
-  docker,
   scita,
-  nextjs,
-  nginx,
   stepCrazy,
   codeSprint,
-  threejs,
 } from "../assets";
 
 export const navLinks = [
@@ -32,6 +17,7 @@ export const navLinks = [
     id: "work",
     title: "Work",
   },
+  { id: "projects", title: "Project" },
   {
     id: "contact",
     title: "Contact",
@@ -54,69 +40,6 @@ const services = [
   {
     title: "API Development Specialist",
     icon: creator,
-  },
-];
-
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "NextJs",
-    icon: nextjs,
-  },
-  // {
-  //   name: "Tailwind CSS",
-  //   icon: tailwind,
-  // },
-  // {
-  //   name: "Three JS",
-  //   icon: threejs,
-  // },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-  {
-    name: "nginx",
-    icon: nginx,
   },
 ];
 
@@ -245,4 +168,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, experiences, testimonials, projects };

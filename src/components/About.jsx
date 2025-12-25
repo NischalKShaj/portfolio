@@ -5,6 +5,8 @@ import { styles } from "../style";
 import { services } from "../constants/constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "./hoc";
+import MoleculeCanvas from "../components/canvas/MoleculeCanvas";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 // Corrected ServiceCard component
 // eslint-disable-next-line react/prop-types
@@ -35,32 +37,73 @@ const About = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={styles.sectionHeadText}> About Me.</h2>
       </motion.div>
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
-      >
-        Hello there!
-        <br />
-        <br />
-        I’m a passionate undergrad with hands-on experience in full-stack
-        development, particularly within the MERN stack.
-        <br />
-        My expertise spans across React.js, NextJS 14, Three.js, Node.js,
-        Express, MongoDB, TypeScript, JavaScript, and Object-Oriented
-        Programming (OOP).
-        <br />
-        I also have a solid foundation in Data Structures and Algorithms.
-        <br />
-        I’m currently on the lookout for an exciting full-time position as a
-        full-stack or backend developer.
-        <br />
-        <br />
-        Let’s build something amazing together!
-      </motion.p>
+      <div className="flex flex-col lg:flex-row gap-10 items-center">
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className="text-secondary text-[16px] max-w-xl leading-[28px]"
+        >
+          Hey! I’m Nischal — a full-stack developer with a strong interest in
+          building scalable, well-structured web applications.
+          <br />
+          <br />
+          I enjoy working across the stack, solving real problems, and turning
+          ideas into reliable, efficient systems. I’m always curious, always
+          learning, and excited by challenges that push me to grow.
+          <br />
+          <br />
+          <a
+            href={`#contact`}
+            className="relative inline-block text-white transition-colors duration-300
+             after:content-[''] after:absolute after:left-0 after:bottom-0
+             after:h-[2px] after:w-0 after:bg-white
+             after:transition-all after:duration-300
+             hover:after:w-full"
+          >
+            Let’s build something meaningful.
+          </a>
+        </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-10">
+        <div className="w-full lg:w-1/2 h-[400px]">
+          <MoleculeCanvas />
+        </div>
+      </div>
+
+      <div className="-mt-10">
+        <p className="italic">“Programs must be written for people to read.”</p>
+        <p className="italic text-sm">— Harold Abelson</p>
+      </div>
+      <div className="mt-6 flex gap-6">
+        <a
+          href="https://www.linkedin.com/in/nischal-k-shaj-71407126b/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-secondary hover:text-white transition text-2xl"
+        >
+          <FaLinkedin />
+        </a>
+
+        <a
+          href="https://github.com/NischalKShaj"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-secondary hover:text-white transition text-2xl"
+        >
+          <FaGithub />
+        </a>
+
+        <a
+          href="https://www.instagram.com/_._nischal_._/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-secondary hover:text-white transition text-2xl"
+        >
+          <FaInstagram />
+        </a>
+      </div>
+
+      <div className="mt-12 flex flex-wrap gap-10">
         {services.map((service, index) => (
           <ServiceCard key={index} index={index} {...service} />
         ))}

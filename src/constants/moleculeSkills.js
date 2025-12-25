@@ -1,0 +1,16 @@
+export const moleculeSkills = [
+  "TypeScript",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "PostgreSQL",
+  "Docker",
+  "GitHub Actions",
+  "Socket.IO",
+  "AWS",
+  "Nginx",
+  "System Design",
+];

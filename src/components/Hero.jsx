@@ -4,7 +4,11 @@ import { styles } from "../style";
 import { ComputersCanvas } from "./canvas";
 
 const Hero = () => {
-  const typedText = useTyped(["developer", "designer"], 150, 100);
+  const typedText = useTyped(
+    ["scalable backends", "real-time systems", "production-ready apps"],
+    120,
+    80
+  );
 
   return (
     <section className={`relative w-full h-screen mx-auto`}>
@@ -20,8 +24,9 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I&apos;m <span className="text-[#915eff]">Nischal</span>
           </h1>
+
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Hello, I&apos;m a <span>{typedText}</span>
+            I build <span className="text-[#915eff]">{typedText}</span>
           </p>
         </div>
       </div>
