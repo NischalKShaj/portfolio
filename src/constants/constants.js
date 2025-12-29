@@ -6,6 +6,7 @@ import {
   scita,
   stepCrazy,
   codeSprint,
+  atms,
 } from "../assets";
 
 export const navLinks = [
@@ -110,7 +111,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: codeSprint,
+    image: atms,
   },
   {
     name: "Code Sprint",

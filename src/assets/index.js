@@ -13,6 +13,7 @@ import scita from "./company/scita.png";
 // projects
 import stepCrazy from "./stepCrazy.png";
 import codeSprint from "./codeSprint.png";
+import atms from "./atms.png";
 
 export {
   logo,
@@ -26,4 +27,5 @@ export {
   scita,
   stepCrazy,
   codeSprint,
+  atms,
 };
