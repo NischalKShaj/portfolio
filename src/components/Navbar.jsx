@@ -11,11 +11,11 @@ const Navbar = () => {
 
   // for downloading the CV
   const handleDownloadCV = () => {
-    const url = "/Nischal_K_Shaj_Full_Stack_Developer.pdf";
+    const url = "/Nischal_K_Shaj_Software_Developer.pdf";
     // Create a temporary anchor element
     const link = document.createElement("a");
     link.href = url;
-    link.download = "Nischal_K_Shaj_Full_Stack_Developer.pdf"; // Name of the downloaded file
+    link.download = "Nischal_K_Shaj_Software_Developer.pdf"; // Name of the downloaded file
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
