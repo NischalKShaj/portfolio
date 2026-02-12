@@ -6,7 +6,7 @@ import { services } from "../constants/constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "./hoc";
 import MoleculeCanvas from "../components/canvas/MoleculeCanvas";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 // Corrected ServiceCard component
 // eslint-disable-next-line react/prop-types
@@ -29,6 +29,8 @@ const ServiceCard = ({ index, title, icon }) => {
     </div>
   );
 };
+
+const message = "";
 
 const About = () => {
   return (
@@ -99,6 +101,18 @@ const About = () => {
         >
           <FaInstagram />
         </a>
+        <button
+          onClick={() => {
+            const message = encodeURIComponent(
+              "Hi Nischal, I'm ready to invest in building something solid and scalable. I'd like to explore working with you.",
+            );
+
+            window.open(`https://wa.me/919544291856?text=${message}`, "_blank");
+          }}
+          className="text-secondary hover:text-white transition text-2xl"
+        >
+          <FaWhatsapp />
+        </button>
       </div>
 
       <div className="mt-12 flex flex-wrap gap-7">
