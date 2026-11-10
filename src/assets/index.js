@@ -6,6 +6,7 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import live from "./live.png";
 
 // company exp section
 import scita from "./company/scita.png";
@@ -14,6 +15,7 @@ import scita from "./company/scita.png";
 import stepCrazy from "./stepCrazy.png";
 import codeSprint from "./codeSprint.png";
 import atms from "./atms.png";
+import frosty from "./frosty.png";
 
 export {
   logo,
@@ -28,4 +30,6 @@ export {
   stepCrazy,
   codeSprint,
   atms,
+  frosty,
+  live,
 };

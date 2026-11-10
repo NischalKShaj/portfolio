@@ -7,6 +7,7 @@ import {
   stepCrazy,
   codeSprint,
   atms,
+  frosty,
 } from "../assets";
 
 export const navLinks = [
@@ -27,15 +28,83 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Full-Stack Web Developer",
+    title: "Frontend Development",
+    description:
+      "Creating responsive, interactive, and visually engaging user interfaces with React, Next.js, and TypeScript. Focused on component-based architecture, state management, performance optimization, and delivering seamless user experiences across devices.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    projectExamples: ["Mangaluru Frosty", "Code Sprint"],
+    codeLabel: "Hero.tsx",
+    codeSample: [
+      "export function Hero() {",
+      "  return (",
+      '    <main className="min-h-screen">',
+      "      <h1>Build something great</h1>",
+      "      <button>Explore projects</button>",
+      "    </main>",
+      "  );",
+      "}",
+    ],
+    icon: mobile,
+  },
+  {
+    title: "Full-Stack Development",
+    description:
+      "Building responsive, user-friendly web applications from frontend to backend. I develop complete solutions using React, Next.js, Node.js, and modern databases, focusing on clean architecture, performance, and seamless user experiences.",
+    technologies: ["React", "Next.js", "Node.js", "Express.js", "MongoDB"],
+    projectExamples: ["Mangaluru Frosty", "Code Sprint"],
+    codeLabel: "app.js",
+    codeSample: [
+      "async function loadProject(id) {",
+      "  const project = await api.get(`/projects/${id}`);",
+      "  return <ProjectPage project={project} />;",
+      "}",
+      "",
+      "export default loadProject;",
+    ],
     icon: web,
   },
   {
-    title: "Backend Engineer (Node.js)",
+    title: "Backend Development & Engineering",
+    description:
+      "Developing robust and scalable backend systems with Node.js, Express.js, and NestJS. From database architecture and authentication to business logic and server-side optimization, I build reliable systems designed to handle real-world application requirements.",
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "MongoDB",
+      "Socket.IO",
+    ],
+    projectExamples: ["ATMS", "Code Sprint"],
+    codeLabel: "server.js",
+    codeSample: [
+      "app.get('/events/:id', async (req, res) => {",
+      "  const event = await eventService.find(req.params.id);",
+      "  if (!event) return res.sendStatus(404);",
+      "  res.json(event);",
+      "});",
+    ],
     icon: backend,
   },
   {
-    title: "API & System Design",
+    title: "API Development & Integration",
+    description:
+      "Designing and developing secure, efficient REST APIs and integrating third-party services. Experienced in payment gateway integration, cloud storage, real-time communication, and external service integrations to connect applications and deliver seamless functionality.",
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Socket.IO",
+      "Cloudinary",
+    ],
+    projectExamples: ["ATMS", "Mangaluru Frosty", "Code Sprint"],
+    codeLabel: "events.route.js",
+    codeSample: [
+      "router.post('/events', validateEvent, async (req, res) => {",
+      "  const event = await eventService.create(req.body);",
+      "  io.emit('event:created', event);",
+      "  res.status(201).json(event);",
+      "});",
+    ],
     icon: creator,
   },
 ];
@@ -114,6 +183,44 @@ const projects = [
     image: atms,
   },
   {
+    name: "Mangaluru Frosty",
+    description:
+      "Developed a responsive business website enabling customers to explore available products and pricing. Built an admin dashboard for product management with CRUD operations and environment-based authentication. Integrated Cloudinary for image storage, WhatsApp for customer-initiated orders, and Nodemailer for email communication.  ",
+    tags: [
+      {
+        name: "next.js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typeScript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "express.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "green-text-gradient",
+      },
+      {
+        name: "cloudinary",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "nodemailer",
+        color: "yellow-text-gradient",
+      },
+    ],
+    image: frosty,
+    // source_code_link: "https://github.com/NischalKShaj/Step_Crazy",
+    live_link: "https://google.com",
+  },
+  {
     name: "Code Sprint",
     description:
       "Developed a comprehensive e-learning platform for programming and competitive coding. The platform allows course additions to Amazon S3, detailed course viewing, and integrates payment gateways for subscriptions. It includes features for adding coding problems, an admin dashboard with user statistics, and real-time chat between tutors and students. Built with Node.js, Express.js, and Next.js for scalability and a dynamic user experience.",
@@ -157,39 +264,6 @@ const projects = [
     ],
     image: codeSprint,
     source_code_link: "https://github.com/NischalKShaj/Code_Sprint",
-  },
-  {
-    name: "Step Crazy",
-    description:
-      "Step crazy is a comprehensive e-commerce platform developed and deployed to provide a seamless online shopping experience for shoe enthusiasts. The platform incorporates various features, including product view, zoom, cart/wishlist management, diverse payment methods, order details, coupon application, and PDF invoices. Additionally, it includes an admin dashboard for graphical sales representation, user management, and product/category/coupon editing.",
-    tags: [
-      {
-        name: "ejs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node.js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express.js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "bootstrap",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "javascript",
-        color: "yellow-text-gradient",
-      },
-    ],
-    image: stepCrazy,
-    source_code_link: "https://github.com/NischalKShaj/Step_Crazy",
   },
 ];
 

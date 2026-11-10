@@ -11,17 +11,14 @@ const Navbar = () => {
 
   // for downloading the CV
   const handleDownloadCV = () => {
-    const url = "/Nischal_K_Shaj_Software_Developer.pdf";
+    const url = "/Nischal_K_Shaj_Full_Stack_Developer.pdf";
     // Create a temporary anchor element
     const link = document.createElement("a");
     link.href = url;
-    link.download = "Nischal_K_Shaj_Software_Developer.pdf"; // Name of the downloaded file
+    link.download = "Nischal_K_Shaj_Full_Stack_Developer.pdf"; // Name of the downloaded file
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    // Close mobile menu if open
-    if (toggle) setToggle(false);
   };
 
   return (
@@ -93,21 +90,16 @@ const Navbar = () => {
                   <a href={`#${link.id}`}>{link.title}</a>
                 </li>
               ))}
-              <li
-                className={`${
-                  active === "Download CV" ? "text-white" : "text-secondary"
-                } font-poppins font-medium text-[16px] cursor-pointer`}
-                onClick={() => {
-                  setToggle(!toggle);
-                  handleDownloadCV();
-                }}
-              >
-                <button>Download CV</button>
-              </li>
             </ul>
           </div>
         </div>
       </div>
+      <button
+        className="fixed bottom-6 right-6 z-30 sm:hidden bg-primary border-2 border-secondary hover:border-white text-white font-medium px-4 py-3 rounded-xl shadow-lg transition-all duration-300 "
+        onClick={handleDownloadCV}
+      >
+        Download CV
+      </button>
     </nav>
   );
 };

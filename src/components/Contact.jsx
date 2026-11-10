@@ -1,19 +1,14 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import { styles } from "../style";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "./hoc";
 import { slideIn } from "../utils/motion";
 import toast from "react-hot-toast";
 
-// template_lu5apzi
-// service_7xygkyt
-// tv4ZtdWkoQyQOtmK4
+const WEB_FORM_ACCESS_KEY = "8ad649cb-e39b-4bbf-8137-3d708006d02a";
 
 const Contact = () => {
-  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -25,38 +20,43 @@ const Contact = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    emailjs
-      .send(
-        "service_x97d9v7",
-        "template_lu5apzi",
-        {
-          from_name: form.name,
-          to_name: "Nischal",
-          from_email: form.email,
-          to_email: "nischalkshaj5@gmail.com",
-          message: form.message,
-        },
-        "bsp7wHNsqvnaMQHMB"
-      )
-      .then(
-        () => {
-          setLoading(false);
-          toast.success("Message sent. I’ll get back to you soon.");
-          setForm({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          setLoading(false);
-          console.log(error);
-          toast.error("Email service failed. Opening mail client…");
 
-          window.location.href = `mailto:nischalkshaj5@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(
-            form.message
-          )}`;
-        }
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB_FORM_ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: `Portfolio contact from ${form.name}`,
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || `Request failed (${response.status})`);
+      }
+
+      toast.success("Message sent. I’ll get back to you soon.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Web3Forms submission failed:", error);
+      toast.error(
+        error instanceof Error
+          ? `Could not send message: ${error.message}`
+          : "Could not send message. Please try again.",
       );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,7 +69,6 @@ const Contact = () => {
         <h3 className={`${styles.sectionHeadText}`}>Contact.</h3>
 
         <form
-          ref={formRef}
           onSubmit={handleSubmit}
           className="mt-12 flex flex-col gap-10"
         >
@@ -78,6 +77,7 @@ const Contact = () => {
             <input
               type="text"
               name="name"
+              required
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
@@ -89,6 +89,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
+              required
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email?"
@@ -100,6 +101,7 @@ const Contact = () => {
             <textarea
               rows={5}
               name="message"
+              required
               value={form.message}
               onChange={handleChange}
               placeholder="What do you want to say?"
@@ -108,6 +110,7 @@ const Contact = () => {
           </label>
           <button
             type="submit"
+            disabled={loading}
             className="bg-tertiary py-3 px-8 outline-none w-full text-white font-bold shadow-md shadow-primary rounded-xl"
           >
             {loading ? "Sending....." : "Send"}
