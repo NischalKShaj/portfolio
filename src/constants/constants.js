@@ -111,7 +111,7 @@ const services = [
 
 const experiences = [
   {
-    title: "Software Trainee (Backend Developer)",
+    title: "Web Developer",
     company_name: "Scita Solutions",
     icon: scita,
     iconBg: "#E6DEDD",
