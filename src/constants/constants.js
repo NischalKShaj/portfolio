@@ -218,7 +218,7 @@ const projects = [
     ],
     image: frosty,
     // source_code_link: "https://github.com/NischalKShaj/Step_Crazy",
-    live_link: "https://google.com",
+    live_link: "https://mangalurufrosty.co.in",
   },
   {
     name: "Code Sprint",
